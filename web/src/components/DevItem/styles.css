@@ -3,6 +3,11 @@ li.dev-item{
     box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
     border-radius: 2px;
     padding: 20px;
+    position: relative;
+}
+
+li.dev-item:hover #trash{
+    display: block;
 }
 
 li.dev-item header {
@@ -49,3 +54,36 @@ li.dev-item a {
 li.dev-item a:hover {
     color: #5a2ea6;
 }
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v48/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  }
+  
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #trash {
+      color: #8e4dff;
+      bottom: 15px;
+      right: 10px;
+      position: absolute;
+      display: none;
+      cursor: pointer;
+      transition: background 0.5s;
+  }

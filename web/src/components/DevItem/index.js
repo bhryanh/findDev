@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './styles.css';
 
 function DevItem(props) {
-    const { dev } = props;
+    const { dev, onRemove } = props;
+    const [github_username] = useState(dev.github_username);
+
+    async function handleRemoveDev(e){
+      e.preventDefault();
+      await onRemove({
+      github_username
+      });
+    }
 
     return (
         <li className="dev-item">
@@ -15,6 +23,7 @@ function DevItem(props) {
         </header>
         <p>{dev.bio}</p>
         <a href={`https://github.com/${dev.github_username}`}>Acessar perfil no GitHub</a>
+        <i className="material-icons" id="trash" onClick={handleRemoveDev}>delete</i>
       </li>
     );
 }
