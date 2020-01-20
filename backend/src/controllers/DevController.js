@@ -10,8 +10,18 @@ module.exports = {
     },
 
     async remove(req, res){
-        const dev = await Dev.remove();
+        const { github_username } = req.query;
+        let dev = await Dev.findOne({ github_username });
+
+        await Dev.deleteOne({ github_username: github_username });
+
+        return res.json(dev);
     },
+
+    async update(req, res){
+        const { github_username, name, bio, techs } = req.body;
+        return req.body;
+    },  
 
 
     async store(req, res) {
