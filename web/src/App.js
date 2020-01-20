@@ -28,11 +28,11 @@ function App() {
   }
 
   async function handleRemoveDev(data) {    
-    const dev = await api.delete('/devs', {params: {
+    const response = await api.delete('/devs', {params: {
       github_username: data.github_username
     }});
 
-    devs.splice( devs.indexOf(dev), 1)
+    devs.splice( devs.map(function(e) { return e.github_username; }).indexOf(response.data.github_username), 1)
     setDevs([...devs]);
   }
 
